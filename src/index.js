@@ -1,20 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tooltip from './Tooltip';
+import Tooltip from './Tooltip/renderProps';
+import TooltipC, { Message, Toggler } from './Tooltip/compound';
 
 function App() {
 	return (
-		<div>
+		<React.Fragment>
 			<Tooltip content={'yolo'} open={false}>
 				{({ show, hide, toggle }) => (
-					<div>
+					<React.Fragment>
 						<button onClick={show}>Show</button>
 						<button onClick={hide}>Hide</button>
 						<button onClick={toggle}>Toggle</button>
-					</div>
+					</React.Fragment>
 				)}
 			</Tooltip>
-		</div>
+
+			<hr />
+
+			<TooltipC id={'tooltip'}>
+				<Toggler>Toggle</Toggler>
+				<Message>Yolo</Message>
+			</TooltipC>
+		</React.Fragment>
 	);
 }
 
